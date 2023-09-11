@@ -24,19 +24,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ContactForm from './components/ContactForm';
 import ContactCard from './components/ContactCard';
+import Home from './components/Home';
 
 function App() {
   const contacts = useSelector((state) => state.contacts.contacts);
-  console.log(contacts);
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Contact List</h1>
-      <ContactForm />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-        {contacts.map((contact) => (
-          <ContactCard key={contact.id} contact={contact} />
-        ))}
-      </div>
+      <Home contact={contacts}/>
+      
     </div>
   );
 }
